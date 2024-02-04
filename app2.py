@@ -16,7 +16,7 @@ session_state.authenticated = False
 actual_answers = []
 #PDF to TEXT
 def uploadpdf():
-    st.title("Simple PDF Text Extractor")
+    st.title("PDF To Text")
     uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
     if uploaded_file is not None:
         with open("temp.pdf", "wb") as temp_file:
@@ -251,7 +251,7 @@ def loginPage():
 
 def main():
     # st.title("Welcome to AI Powered Test")
-    page = st.sidebar.radio("Select Page", ["Login", "Upload", "Questions"])
+    page = st.sidebar.radio("Select Page", [ "Upload", "Questions"])
     session_state['page'] = str(page)
     # if navigation() == "login":
     #     loginPage()
@@ -265,14 +265,5 @@ def main():
         loginPage()
     elif session_state['page'] == "Questions":
         GetQuestions()
-
-# def navigation():
-#     try:
-#         path = st.experimental_get_query_params()['p'][0]
-#     except Exception as e:
-#         st.error('Please use the main app.')
-#         return None
-#     return path
-
 if __name__ == "__main__":
     main()
